@@ -8,6 +8,7 @@ export class Welcome extends React.Component{
         <p>Welcome, { this.props.name }!</p>
         { !!this.props.age //Check if it's present (in this case to be > 18 age should already be truth-y)
           && this.props.age > 18
+          && this.props.age < 65
           && <Age age={ this.props.age } /> }
       </div>
     )
