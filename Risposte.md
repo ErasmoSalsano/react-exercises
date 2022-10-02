@@ -7,3 +7,6 @@ Yes, it would be rendered
 Props-02
 It would be rendered only the rest of the Welcome component.
 Yes, default values can be set in different ways
+
+Props-04
+Values containing JSX expression should be passed in curly brackets
