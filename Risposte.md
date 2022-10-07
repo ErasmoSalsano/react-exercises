@@ -16,3 +16,6 @@ The parameter should be a function.
 The setState block gets queued, then executed at the first oppotunity for react to do so.
 With an objec the state values are passed in the moment it's put in the queue, so it could not have the updeated values in the moment it will be executed.
 The function takes state's values in the moment it executes, so it will have the updated values.
+
+Component-lifecycle-01
+in this case the constructor isn't required
