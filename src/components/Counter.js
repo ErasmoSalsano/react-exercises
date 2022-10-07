@@ -16,7 +16,11 @@ export class Counter extends React.Component{
     setInterval(() => {
       this.setState((state)=>{
         return {
-          count: state.count + this.props.incrementAmount
+          //If the new value is > 10 * initialCount it will reset to initialCount value.
+          //initialCount set to 0 will always render 0 (0 * 10 = 0)
+          count: (state.count + this.props.incrementAmount) > (this.props.initialCount * 10) 
+            ? this.props.initialCount   
+            : state.count + this.props.incrementAmount
         }
       })
     }, this.props.incrementInterval)
