@@ -19,3 +19,6 @@ The function takes state's values in the moment it executes, so it will have the
 
 Component-lifecycle-01
 in this case the constructor isn't required
+
+Component-lifecycle-02
+The componentWillUnmount method
