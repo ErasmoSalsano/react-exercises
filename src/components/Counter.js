@@ -14,12 +14,23 @@ export class Counter extends React.Component{
         return {
           //If the new value is > 10 * initialCount it will reset to initialCount value.
           //initialCount set to 0 will always render 0 (0 * 10 = 0)
-          count: (state.count + this.props.incrementAmount) > (this.props.initialCount * 10) 
+          count: /* (state.count + this.props.incrementAmount) > (this.props.initialCount * 10) 
             ? this.props.initialCount   
-            : state.count + this.props.incrementAmount
+            : */ state.count + this.props.incrementAmount
         }
       })
     }, this.props.incrementInterval)
+  }
+
+  componentDidUpdate(){
+    if (this.state.count > this.props.initialCount * 10){
+      console.log('Reset');
+      this.setState(()=>{
+        return {
+          count: this.props.initialCount
+        }
+      })
+    }
   }
 
   componentWillUnmount(){
