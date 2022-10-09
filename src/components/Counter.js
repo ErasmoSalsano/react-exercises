@@ -24,7 +24,6 @@ export class Counter extends React.Component{
 
   componentDidUpdate(){
     if (this.state.count > this.props.initialCount * 10){
-      console.log('Reset');
       this.setState(()=>{
         return {
           count: this.props.initialCount
