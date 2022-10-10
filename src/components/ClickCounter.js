@@ -7,7 +7,7 @@ export class ClickCounter extends React.Component {
   state = {
     count: this.props.initialCount,
   }
-
+  
   handleCounterIncrement = () => {
     this.setState((state) => {
       return {
