@@ -13,7 +13,6 @@ export class Login extends React.Component {
   handleChange = (event) => {
     const name = event.target.name
     const value = event.target.type === 'checkbox' ? event.target.checked : event.target.value
-    
     this.setState({
       [name]: value,
     })
@@ -21,6 +20,15 @@ export class Login extends React.Component {
       return {
         loginButtonState: !state.username.trim() || !state.password
       }
+    })
+  }
+
+  handleReset = () => {
+    this.setState({
+      username: '',
+      password: '',
+      remember: false,
+      loginButtonState: true
     })
   }
 
@@ -37,6 +45,8 @@ export class Login extends React.Component {
 
         <button name='login' type = 'button' onClick = { this.handleLogin } disabled = { this.state.loginButtonState } >Login</button>
         {/* <Button clickHandler = { this.handleLogin } content = 'Login' name = 'login' type = 'button' disabled = { this.state.loginButtonState } /> */}
+
+        <button name = 'reset' type = 'button' onClick = { this.handleReset } >Reset</button>
       </div>
     )
   }
@@ -45,3 +55,6 @@ export class Login extends React.Component {
 Login.defaultProps = {
   onLogin: ()=>{console.error('Missing login function')}
 }
+
+// Add a "reset" button to 
+// the Login component that clears the content of all three inputs when clicked.
