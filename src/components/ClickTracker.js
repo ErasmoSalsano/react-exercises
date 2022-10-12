@@ -36,8 +36,8 @@ export class ClickTracker extends React.Component{
         <Button clickHandler = { this.tracker } content='Terzo' />
         <br />
         <Button clickHandler = { this.tracker } content={<img src={process.env.PUBLIC_URL+"number1.png"} height= '30px' alt='Numero 1' /> } />
-        <Button clickHandler = { this.tracker } content={<img src={process.env.PUBLIC_URL+"number2.png"} height= '30px' alt='Numero 2'/> } />
-        <Button clickHandler = { this.tracker } content={<img src={process.env.PUBLIC_URL+"number3.png"} height= '30px' alt='Numero 3'/> } />
+        <Button clickHandler = { this.tracker } content={<img src={process.env.PUBLIC_URL+"number2.png"} height= '30px' alt='Numero 2' /> } />
+        <Button clickHandler = { this.tracker } content={<img src={process.env.PUBLIC_URL+"number3.png"} height= '30px' alt='Numero 3' /> } />
         {<h1>Last clicked: { this.state.lastPressed }</h1>}
       </div>
     )
