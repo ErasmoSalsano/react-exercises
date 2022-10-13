@@ -20,7 +20,7 @@ export class ClickCounter extends React.Component {
     return(
       <div>
         <CounterDisplay content = { this.state.count } />
-        <Button clickHandler = { this.handleCounterIncrement } text = 'Increment Counter' />
+        <Button clickHandler = { this.handleCounterIncrement } content = 'Increment Counter' />
       </div>
     )
   }
