@@ -8,13 +8,13 @@ export class UncontrolledLogin extends React.Component {
     this._formRef.current.elements.login.disabled = true;
   } */
 
-  handleChange = (event) => {
-    event.preventDefault();
+  handleChange = (event, isReset=false) => {
+    !isReset && event.preventDefault();
 
     const username = event.currentTarget.elements.username.value;  //Prende i valori
     const password = event.currentTarget.elements.password.value;
     
-    this._formRef.current.elements.login.disabled = !username || !password  //Aggiorna il disabled
+    this._formRef.current.elements.login.disabled = isReset ? true : !username || !password  //Aggiorna il disabled
   }
 
   handleLogin = (event) => {
@@ -31,7 +31,7 @@ export class UncontrolledLogin extends React.Component {
 
   render() {
     return(
-      <form ref = { this._formRef } onChange={ this.handleChange } onSubmit={ this.handleLogin }>
+      <form ref = { this._formRef } onChange={ this.handleChange } onSubmit={ this.handleLogin } onReset={ event => this.handleChange(event, true)}>
         <input name='username' autoFocus />
         <input name='password' type = 'password' />
         <input name='remember' type = 'checkbox' />
