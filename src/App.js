@@ -29,7 +29,7 @@ export class App extends React.Component{
         <h4>Uncontrolled Login</h4>
         <UncontrolledLogin onLogin = { login } />
         <br />
-        <Colors colors={['Blue', 'yellow', 'cobalt', 'magenta']} />
+        <Colors items={[{id:0, name:'Blue'}, {id:0, name:'yellow'}, {id:0, name:'cobalt'}, {id:0, name:'magenta'}]} />
       </div>
     )
   }
