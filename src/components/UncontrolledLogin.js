@@ -9,7 +9,7 @@ export class UncontrolledLogin extends React.Component {
   } */
 
   handleChange = (event, isReset=false) => {
-    !isReset && event.preventDefault();
+    !isReset && event.target.name !== 'remember' && event.preventDefault();
 
     const username = event.currentTarget.elements.username.value;  //Prende i valori
     const password = event.currentTarget.elements.password.value;
