@@ -26,7 +26,7 @@ export class TodoList extends React.Component{
     return(
       <div>
         <ul>
-          {this.state.items.map((item)=><li>{item}</li>)}
+          {this.state.items.map((item, index)=><li key={index}>{item}</li>)}
         </ul>
         <input name='todo' type='text' onChange={this.handleInputChange} value={this.state.newTodo} placeholder='Compile with todo'></input>
         <button type='button' onClick={this.addTodo} disabled={this.state.addButtonState}>Add todo</button>
