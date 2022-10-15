@@ -22,7 +22,14 @@ export class TodoList extends React.Component{
     })
   }
 
-  handleListReset= ()=>{
+  handleRemoveTodo=(event, toRemove)=>{
+    console.log(event.target, event.target.index)
+    this.setState((state)=>{
+      return{items: state.items.filter((item, index)=> index!==Number(toRemove))}
+    })
+  }
+
+  handleListReset = ()=>{
     this.setState({
       items: []
     })
@@ -32,7 +39,7 @@ export class TodoList extends React.Component{
     return(
       <div>
         <ul>
-          {this.state.items.map((item, index)=><li key={index}>{item}</li>)}
+          {this.state.items.map((item, index)=><li key={item + index}>{item}<button type='button' onClick={(event)=>{this.handleRemoveTodo(event, index)}} >Remove</button></li>)}
         </ul>
         <input name='todo' type='text' onChange={this.handleInputChange} value={this.state.newTodo} placeholder='Compile with todo'></input>
         <button type='button' onClick={this.handleAddTodo} disabled={this.state.addButtonState}>Add todo</button>

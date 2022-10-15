@@ -17,9 +17,9 @@ const login = (dati) => {
 
 const colors = [
   {id:0, name:'Blue'}, 
-  {id:0, name:'yellow'}, 
-  {id:0, name:'cobalt'}, 
-  {id:0, name:'magenta'}
+  {id:1, name:'yellow'}, 
+  {id:2, name:'cobalt'}, 
+  {id:3, name:'magenta'}
 ]
 export class App extends React.Component{
   render(){
