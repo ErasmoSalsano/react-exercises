@@ -15,10 +15,16 @@ export class TodoList extends React.Component{
     })
   }
 
-  addTodo = ()=>{
+  handleAddTodo = ()=>{
     this.setState({
       items: [...this.state.items, this.state.newTodo],
       newTodo: ''
+    })
+  }
+
+  handleListReset= ()=>{
+    this.setState({
+      items: []
     })
   }
 
@@ -29,7 +35,8 @@ export class TodoList extends React.Component{
           {this.state.items.map((item)=><li>{item}</li>)}
         </ul>
         <input name='todo' type='text' onChange={this.handleInputChange} value={this.state.newTodo} placeholder='Compile with todo'></input>
-        <button type='button' onClick={this.addTodo} disabled={this.state.addButtonState}>Add todo</button>
+        <button type='button' onClick={this.handleAddTodo} disabled={this.state.addButtonState}>Add todo</button>
+        <button type='reset' onClick={this.handleListReset}>Reset list</button>
       </div>
     )
   }
