@@ -12,7 +12,14 @@ import { Welcome } from "./components/Welcome";
 
 const login = (dati) => {
   console.log(dati)
-}
+};
+
+const colors= [
+  {id:0, name:'Blue'}, 
+  {id:1, name:'yellow'}, 
+  {id:2, name:'cobalt'}, 
+  {id:3, name:'magenta'}
+]
 
 export class App extends React.Component{
   render(){
@@ -29,7 +36,7 @@ export class App extends React.Component{
         <h4>Uncontrolled Login</h4>
         <UncontrolledLogin onLogin = { login } />
         <br />
-        <Colors items={[{id:0, name:'Blue'}, {id:0, name:'yellow'}, {id:0, name:'cobalt'}, {id:0, name:'magenta'}]} />
+        <Colors items={ colors } />
       </div>
     )
   }
