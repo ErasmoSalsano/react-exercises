@@ -4,7 +4,7 @@ export class TodoList extends React.Component{
 
   state = {
     items: [],
-    newTodo: null,
+    newTodo: '',
     addButtonState: true
   }
 
@@ -17,7 +17,8 @@ export class TodoList extends React.Component{
 
   addTodo = ()=>{
     this.setState({
-      items: [...this.state.items, this.state.newTodo]
+      items: [...this.state.items, this.state.newTodo],
+      newTodo: ''
     })
   }
 
