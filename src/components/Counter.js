@@ -23,7 +23,7 @@ export class Counter extends React.Component{
   }
 
   componentDidUpdate(){
-    if (this.state.count > this.props.initialCount * 10){
+    if (this.state.count > 500 /* this.props.initialCount * 10  (Modificato per l'esercizio styling components)*/){
       this.setState(()=>{
         return {
           count: this.props.initialCount
@@ -39,8 +39,18 @@ export class Counter extends React.Component{
   }
 
   render(){
+    const count = this.state.count
+    const style = {
+      'background-color': `rgb(
+        ${count < 255 ? 255 - count : 0}, 
+        ${count > 255 ? 255 - (count - 255) : 255}, 
+        ${count < 255 ? 255 - count : 0}
+        )`,
+      'color':`rgb(${count/2}, ${count/2}, ${count/2})`
+    }
+
     return (
-      <CounterDisplay content={ this.state.count } />
+      <CounterDisplay style = {style} content={ this.state.count } />
     )
   }
 }

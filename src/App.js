@@ -28,7 +28,7 @@ export class App extends React.Component{
         <Hello />
         {/* Passing the className as a prop of the component when used prevents it from using the class in every occasion */}
         <Welcome /* className='welcome' */ name={ 'John' }  age={ 18 } />
-        <Counter initialCount={ 1 } incrementAmount={ 1 } incrementInterval={ 500 }/>
+        <Counter initialCount={ 1 } incrementAmount={ 10 } incrementInterval={ 200 }/>
         <ClickCounter />
         <ClickTracker />
         <h4>Interactive welcome</h4>
