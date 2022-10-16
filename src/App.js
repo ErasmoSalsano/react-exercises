@@ -26,10 +26,12 @@ export class App extends React.Component{
     return(
       <div>
         <Hello />
-        <Welcome name={ 'John' }  age={ 18 } />
+        {/* Passing the className as a prop of the component when used prevents it from using the class in every occasion */}
+        <Welcome /* className='welcome' */ name={ 'John' }  age={ 18 } />
         <Counter initialCount={ 1 } incrementAmount={ 1 } incrementInterval={ 500 }/>
         <ClickCounter />
         <ClickTracker />
+        <h4>Interactive welcome</h4>
         <InteractiveWelcome />
         <h4>Controlled Login</h4>
         <Login onLogin = { login } />
