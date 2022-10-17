@@ -22,3 +22,6 @@ in this case the constructor isn't required
 
 Component-lifecycle-02
 The componentWillUnmount method
+
+Render-Props-02
+It only needs to change this.props.render into this.props.children

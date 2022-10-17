@@ -41,12 +41,12 @@ export class Counter extends React.Component{
   render(){
     const count = this.state.count
     const style = {
-      'background-color': `rgb(
+      backgroundColor: `rgb(
         ${count < 255 ? 255 - count : 0}, 
         ${count > 255 ? 255 - (count - 255) : 255}, 
         ${count < 255 ? 255 - count : 0}
         )`,
-      'color':`rgb(${count/2}, ${count/2}, ${count/2})`
+      color:`rgb(${count/2}, ${count/2}, ${count/2})`
     }
 
     return (

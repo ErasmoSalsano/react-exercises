@@ -42,14 +42,23 @@ export class App extends React.Component{
         <Colors items={colors} />
         <h4>Todo list</h4>
         <TodoList 
-          render={(items, handleRemoveTodo)=>{
+        /* For render-Props-01 */
+          /* render={(items, handleRemoveTodo)=>{
+            return(
+              <ul>
+                {items.map((item, index)=><li key={index}><button type='button' onClick={(event)=>{handleRemoveTodo(event, index)}} >Remove</button>{item}</li>)}
+              </ul>
+            )
+          }} */
+        >
+          {/* For Render-Props-02 */}
+          {(items, handleRemoveTodo)=>{
             return(
               <ul>
                 {items.map((item, index)=><li key={index}><button type='button' onClick={(event)=>{handleRemoveTodo(event, index)}} >Remove</button>{item}</li>)}
               </ul>
             )
           }}
-        >
         </TodoList>
         <h4>Todo list</h4>
         <Container Title='Lorem Ipsum'>
