@@ -2,8 +2,8 @@ import React from "react";
 import { ClickCounter } from "./components/ClickCounter";
 import { ClickTracker } from "./components/ClickTracker";
 import { Colors } from "./components/Colors";
+import { Container } from "./components/Container";
 import { Counter } from "./components/Counter";
-
 import { Hello } from "./components/Hello"
 import { InteractiveWelcome } from "./components/InteractiveWelcome";
 import { Login } from "./components/Login";
@@ -42,6 +42,12 @@ export class App extends React.Component{
         <Colors items={colors} />
         <h4>Todo list</h4>
         <TodoList />
+        <h4>Todo list</h4>
+        <Container>
+          <p>
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Optio minima praesentium, quod ab veniam temporibus?
+          </p>
+        </Container>
       </div>
     )
   }
