@@ -41,7 +41,16 @@ export class App extends React.Component{
         <h4>Colors</h4>
         <Colors items={colors} />
         <h4>Todo list</h4>
-        <TodoList />
+        <TodoList 
+          render={(items, handleRemoveTodo)=>{
+            return(
+              <ul>
+                {items.map((item, index)=><li key={index}><button type='button' onClick={(event)=>{handleRemoveTodo(event, index)}} >Remove</button>{item}</li>)}
+              </ul>
+            )
+          }}
+        >
+        </TodoList>
         <h4>Todo list</h4>
         <Container Title='Lorem Ipsum'>
           <p>
