@@ -43,7 +43,7 @@ export class App extends React.Component{
         <h4>Todo list</h4>
         <TodoList />
         <h4>Todo list</h4>
-        <Container>
+        <Container Title='Lorem Ipsum'>
           <p>
             Lorem ipsum dolor, sit amet consectetur adipisicing elit. Optio minima praesentium, quod ab veniam temporibus?
           </p>

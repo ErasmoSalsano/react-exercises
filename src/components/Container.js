@@ -9,6 +9,7 @@ export class Container extends React.Component{
       'padding': '0 1rem'
     }
     return <div style={containerStyle}>
+      <h5>{this.props.Title}</h5>
       {this.props.children}
     </div>
   }
