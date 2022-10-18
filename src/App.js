@@ -4,8 +4,10 @@ import { ClickTracker } from "./components/ClickTracker";
 import { Colors } from "./components/Colors";
 import { Container } from "./components/Container";
 import { Counter } from "./components/Counter";
+import { DisplayLanguage } from "./components/DisplayLanguage";
 import { Hello } from "./components/Hello"
 import { InteractiveWelcome } from "./components/InteractiveWelcome";
+import { LanguageContext } from "./components/LanguageContext";
 import { Login } from "./components/Login";
 import { TodoList } from "./components/ToDoList";
 import { UncontrolledLogin } from "./components/UncontrolledLogin";
@@ -22,6 +24,17 @@ const colors = [
   {id:3, name:'magenta'}
 ]
 export class App extends React.Component{
+
+  state = {
+    language: 'en',
+  }
+  
+  handleLanguageChange = (event)=>{
+    this.setState({
+      language: event.target.value,
+    })
+  }
+
   render(){
     return(
       <div>
@@ -66,6 +79,17 @@ export class App extends React.Component{
             Lorem ipsum dolor, sit amet consectetur adipisicing elit. Optio minima praesentium, quod ab veniam temporibus?
           </p>
         </Container>
+        <h4>Context</h4>
+        <select onChange={this.handleLanguageChange}>
+          <option value='en' selected>ENGLISH</option>
+          <option value='it'>ITALIANO</option>
+          <option value='fr'>FRANÇAIS</option>
+          <option value='de'>DEUTSCH</option>
+          <option value='es'>ESPAŅOL</option>
+        </select>
+        <LanguageContext.Provider value={this.state.language}>
+          <DisplayLanguage />
+        </LanguageContext.Provider>
       </div>
     )
   }
