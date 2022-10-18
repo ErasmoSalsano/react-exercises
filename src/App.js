@@ -73,7 +73,7 @@ export class App extends React.Component{
             )
           }}
         </TodoList>
-        <h4>Todo list</h4>
+        <h4>Component composition</h4>
         <Container Title='Lorem Ipsum'>
           <p>
             Lorem ipsum dolor, sit amet consectetur adipisicing elit. Optio minima praesentium, quod ab veniam temporibus?
