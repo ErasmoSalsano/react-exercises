@@ -9,6 +9,7 @@ import { Hello } from "./components/Hello"
 import { InteractiveWelcome } from "./components/InteractiveWelcome";
 import { LanguageContext } from "./components/LanguageContext";
 import { Login } from "./components/Login";
+import { Sum } from "./components/Sum";
 import { TodoList } from "./components/ToDoList";
 import { UncontrolledLogin } from "./components/UncontrolledLogin";
 import { Welcome } from "./components/Welcome";
@@ -90,6 +91,8 @@ export class App extends React.Component{
         <LanguageContext.Provider value={this.state.language}>
           <DisplayLanguage />
         </LanguageContext.Provider>
+        <h4>Sum</h4>
+        <Sum  numbers={[10, 3, 5, 20]}/>
       </div>
     )
   }
