@@ -25,3 +25,7 @@ The componentWillUnmount method
 
 Render-Props-02
 It only needs to change this.props.render into this.props.children
+
+Function Components - 03
+If the numbers prop of the Sum component is not set and neither is the initial value in the reduce method, the app will break due to missing default value. 
+To set the default value for the prop we could assign it to the prop in the round brackets, where the function receives the props.
