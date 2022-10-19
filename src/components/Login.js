@@ -1,68 +1,47 @@
-import React from "react";
-// import { Button } from "./Button";
+import { useState } from "react";
 
-export class Login extends React.Component {
+export function Login({onLogin = ()=>{console.error('Missing login function')}}){
 
-  state = {
-    username: '',
-    password: '',
-    remember: false,
-    loginButtonState: true
-  }
-
-  handleChange = (event) => {
-    const name = event.target.name
-    const value = event.target.type === 'checkbox' ? event.target.checked : event.target.value
-    this.setState({
-      [name]: value,
-    })
-    this.setState((state) => {
-      return {
-        loginButtonState: !state.username.trim() || !state.password
-      }
-    })
-  }
-
-  handleReset = () => {
-    this.setState({
+  const [data, setData] = useState({
       username: '',
       password: '',
-      remember: false,
-      loginButtonState: true
+      remember: false
+    }
+  )
+
+  const loginStyle = {
+    backgroundColor: `${data.password.length < 8 ? 'red' : 'green'}`,
+    borderColor: 'transparent',
+    borderRadius: '4px',
+    color: 'white'
+  }
+
+  const handleChange = (event)=>{
+    const {name, value, checked, type} = event.target;
+    console.log(name, value, checked)
+    setData((data)=>{return{...data, [name]: type === 'checkbox' ? checked : value}})
+  }
+
+  const handleLogin = () => {
+    onLogin(data)
+  }
+
+  const handleReset = () => {
+    setData({
+      username: '',
+      password: '',
+      remember: false
     })
   }
 
-  handleLogin = () => {
-    this.props.onLogin(this.state)
-  }
+  return(
+    <form>
+      <input name='username' onChange = { handleChange } value = { data.username } />
+      <input name='password' type='password' onChange = { handleChange } value = { data.password } />
+      <input name='remember' type='checkbox' onChange = { handleChange } checked = { data.remember } />
 
-  render() {
-
-    const loginStyle = {
-      backgroundColor: `${this.state.password.length < 8 ? 'red' : 'green'}`,
-      borderColor: 'transparent',
-      borderRadius: '4px',
-      color: 'white'
-    }
-
-    return(
-      <div>
-        <input name='username' onChange = { this.handleChange } value = { this.state.username } />
-        <input name='password' type='password' onChange = { this.handleChange } value = { this.state.password } />
-        <input name='remember' type='checkbox' onChange = { this.handleChange } checked = { this.state.remember } />
-
-        <button name='login' type = 'button' style={loginStyle} onClick = { this.handleLogin } disabled = { this.state.loginButtonState } >Login</button>
-        {/* <Button clickHandler = { this.handleLogin } content = 'Login' name = 'login' type = 'button' disabled = { this.state.loginButtonState } /> */}
-
-        <button name = 'reset' type = 'button' onClick = { this.handleReset } >Reset</button>
-      </div>
-    )
-  }
+      <button name='login' type = 'button' style={ loginStyle } onClick = { handleLogin } disabled = { !(data.username.trim()) || !(data.password.length >= 8) } >Login</button>
+      <button name = 'reset' type = 'button' onClick = { handleReset } >Reset</button>
+    </form>
+  )
 }
-
-Login.defaultProps = {
-  onLogin: ()=>{console.error('Missing login function')}
-}
-
-// Add a "reset" button to 
-// the Login component that clears the content of all three inputs when clicked.

@@ -81,8 +81,8 @@ export class App extends React.Component{
           </p>
         </Container>
         <h4>Context</h4>
-        <select onChange={this.handleLanguageChange}>
-          <option value='en' selected>ENGLISH</option>
+        <select onChange={this.handleLanguageChange} defaultValue='en'>
+          <option value='en'>ENGLISH</option>
           <option value='it'>ITALIANO</option>
           <option value='fr'>FRANÇAIS</option>
           <option value='de'>DEUTSCH</option>
