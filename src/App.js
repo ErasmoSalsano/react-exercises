@@ -10,7 +10,7 @@ import { InteractiveWelcome } from "./components/InteractiveWelcome";
 import { LanguageContext } from "./components/LanguageContext";
 import { Login } from "./components/Login";
 import { Sum } from "./components/Sum";
-import { TodoList } from "./components/ToDoList";
+import { TodoList } from "./components/TodoList";
 import { UncontrolledLogin } from "./components/UncontrolledLogin";
 import { Welcome } from "./components/Welcome";
 
