@@ -1,10 +1,15 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Button } from "./Button"
 import { CounterDisplay } from "./CounterDisplay"
 
-export function ClickCounter({initialCount = 0, incrementAmount = 1}){
+export function ClickCounter({initialCount = 0, incrementAmount = 1, onCounterChange = ()=>{}}){
 
   const [count, setCount] = useState(initialCount);
+
+  useEffect(() => {
+    onCounterChange(count)
+  }, [count, onCounterChange])
+  
   
   const handleCounterIncrement = ()=>{
     setCount((count)=>count + incrementAmount)

@@ -18,6 +18,8 @@ const login = (dati) => {
   console.log(dati)
 }
 
+const printCount = (count)=>{console.log(count)}
+
 const colors = [
   {id:0, name:'Blue'}, 
   {id:1, name:'yellow'}, 
@@ -43,7 +45,7 @@ export class App extends React.Component{
         {/* Passing the className as a prop of the component when used prevents it from using the class in every occasion */}
         <Welcome /* className='welcome' */ name={ 'John' }  age={ 18 } />
         <Counter initialCount={ 1 } incrementAmount={ 10 } incrementInterval={ 200 }/>
-        <ClickCounter />
+        <ClickCounter onCounterChange={printCount} />
         <ClickTracker />
         <h4>Interactive welcome</h4>
         <InteractiveWelcome />
