@@ -6,6 +6,7 @@ import { Container } from "./components/Container";
 import { Counter } from "./components/Counter";
 import { DisplayLanguage } from "./components/DisplayLanguage";
 import { GithubUser } from "./components/GithubUser";
+import { GithubUserList } from "./components/GithubUserList";
 import { Hello } from "./components/Hello"
 import { InteractiveWelcome } from "./components/InteractiveWelcome";
 import { LanguageContext } from "./components/LanguageContext";
@@ -98,6 +99,8 @@ export class App extends React.Component{
         <Sum  numbers={[10, 3, 5, 20]}/>
         <h4>Github User</h4>
         <GithubUser userName='ErasmoSalsano' />
+        <h4>Github User List</h4>
+        <GithubUserList />
       </div>
     )
   }

@@ -12,10 +12,12 @@ export function Counter ({
   useEffect(()=>{
     count > 500 && setCount(initialCount)
     const Interval = setInterval(() => {
-      setCount(count + incrementAmount)
+      setCount((count)=>count + incrementAmount)
     }, incrementInterval)
     return () => clearInterval(Interval)
   }, [count, incrementAmount, incrementInterval, initialCount])
+  // Le tre dipendenze oltre al count sono props, quindi statiche.
+  // Se cambiassero vorrebbe dire che tutto il componente verrebbe montato da capo, quindi non influiscono sul counter. Giusto?
 
   const style = {
     backgroundColor: `rgb(
