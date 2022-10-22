@@ -1,9 +1,10 @@
-import { useEffect, useState } from "react"
+import { useGithubUser } from "./useGithubUser"
 
 export function GithubUser ({ userName }){
 
-  const [userData, setUserData] = useState({})
-  const TOFEED = [
+  const {userData} = useGithubUser(userName);
+
+  const CARDFIELDS = [
     {key: 'avatar_url', value: 'Avatar'}, 
     {key: 'name', value: 'Name'}, 
     {key: 'html_url', value: 'Link'}, 
@@ -11,21 +12,6 @@ export function GithubUser ({ userName }){
     {key: 'followed', value: 'Followed'}, 
     {key: 'follower', value: 'Follower'}
   ]
-
-  const userFetch = async (user)=>{
-    try {
-      const response = await fetch(`https://api.github.com/users/${user}`);
-      if(response.status !== 200) throw new Error(response.status);
-      const data = await response.json();
-      setUserData(data)
-    } catch (error) {
-      console.warn(`Fetch error\n${error}`)
-    }
-  }
-  
-  useEffect(() => {
-    userFetch(userName)
-  }, [userName])
   
   const userCard = {
     margin: '.5rem',
@@ -49,7 +35,7 @@ export function GithubUser ({ userName }){
     userData.name &&
     <div style={userCard}>
       <ul style={ulStyle}>
-        {TOFEED.map((item) => {
+        {CARDFIELDS.map((item) => {
           const field = item.key
           const heading = item.value
           return userData[field] && (field==='avatar_url' 
