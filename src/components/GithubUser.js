@@ -2,16 +2,7 @@ import { useGithubUser } from "./useGithubUser"
 
 export function GithubUser ({ userName }){
 
-  const {userData} = useGithubUser(userName);
-
-  const CARDFIELDS = [
-    {key: 'avatar_url', value: 'Avatar'}, 
-    {key: 'name', value: 'Name'}, 
-    {key: 'html_url', value: 'Link'}, 
-    {key: 'public_repos', value: 'Public repos'}, 
-    {key: 'followed', value: 'Followed'}, 
-    {key: 'follower', value: 'Follower'}
-  ]
+  const {userData, cardFields} = useGithubUser(userName);
   
   const userCard = {
     margin: '.5rem',
@@ -32,10 +23,10 @@ export function GithubUser ({ userName }){
   }
 
   return(
-    userData.name &&
+    userData?.name &&
     <div style={userCard}>
       <ul style={ulStyle}>
-        {CARDFIELDS.map((item) => {
+        {cardFields.map((item) => {
           const field = item.key
           const heading = item.value
           return userData[field] && (field==='avatar_url' 
