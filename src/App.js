@@ -10,6 +10,7 @@ import { GithubUserList } from "./components/GithubUserList";
 import { Hello } from "./components/Hello"
 import { InteractiveWelcome } from "./components/InteractiveWelcome";
 import { LanguageContext } from "./components/LanguageContext";
+import { Locator } from "./components/Locator";
 import { Login } from "./components/Login";
 import { Sum } from "./components/Sum";
 import { TodoList } from "./components/TodoList";
@@ -101,6 +102,7 @@ export class App extends React.Component{
         <GithubUser userName='ErasmoSalsano' />
         <h4>Github User List</h4>
         <GithubUserList />
+        <Locator />
       </div>
     )
   }
