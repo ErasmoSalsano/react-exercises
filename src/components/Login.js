@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export function Login({onLogin = ()=>{console.error('Missing login function')}}){
 
@@ -34,9 +34,15 @@ export function Login({onLogin = ()=>{console.error('Missing login function')}})
     })
   }
 
+  const _userInputRef = useRef();
+
+  useEffect(() => {
+    _userInputRef.current.focus()
+  }, [])
+
   return(
     <form>
-      <input name='username' onChange = { handleChange } value = { data.username } />
+      <input ref={_userInputRef} name='username' onChange = { handleChange } value = { data.username } />
       <input name='password' type='password' onChange = { handleChange } value = { data.password } />
       <input name='remember' type='checkbox' onChange = { handleChange } checked = { data.remember } />
 
