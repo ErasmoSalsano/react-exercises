@@ -6,6 +6,7 @@ import { Colors } from "./components/Colors";
 import { Container } from "./components/Container";
 import { Counter } from "./components/Counter";
 import { DisplayLanguage } from "./components/DisplayLanguage";
+import { FilteredList } from "./components/FilteredList";
 import { GithubUser } from "./components/GithubUser";
 import { GithubUserList } from "./components/GithubUserList";
 import { Hello } from "./components/Hello"
@@ -29,6 +30,24 @@ const colors = [
   {id:1, name:'yellow'}, 
   {id:2, name:'cobalt'}, 
   {id:3, name:'magenta'}
+]
+
+const people=[
+  {
+    id: 0,
+    name: 'Primo',
+    age: 19,
+  },
+  {
+    id: 1,
+    name: 'Secondo',
+    age: 18,
+  },
+  {
+    id: 2,
+    name: 'Terzo',
+    age: 19,
+  }
 ]
 export class App extends React.Component{
 
@@ -81,7 +100,7 @@ export class App extends React.Component{
           }}
         </TodoList>
         <h4>Component composition</h4>
-        <Container Title='Lorem Ipsum'>
+        <Container title='Lorem Ipsum'>
           <p>
             Lorem ipsum dolor, sit amet consectetur adipisicing elit. Optio minima praesentium, quod ab veniam temporibus?
           </p>
@@ -105,6 +124,7 @@ export class App extends React.Component{
         <GithubUserList />
         <Locator />
         <CarDetails initialData={{make:'Renault', model:'Super five', year:1991, color:'Green'}} />
+        <FilteredList list={people} />
       </div>
     )
   }
