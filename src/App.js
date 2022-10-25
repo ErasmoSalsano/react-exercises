@@ -1,4 +1,5 @@
 import React from "react";
+import { CarDetails } from "./components/CarDetails";
 import { ClickCounter } from "./components/ClickCounter";
 import { ClickTracker } from "./components/ClickTracker";
 import { Colors } from "./components/Colors";
@@ -103,6 +104,7 @@ export class App extends React.Component{
         <h4>Github User List</h4>
         <GithubUserList />
         <Locator />
+        <CarDetails initialData={{make:'Renault', model:'Super five', year:1991, color:'Green'}} />
       </div>
     )
   }

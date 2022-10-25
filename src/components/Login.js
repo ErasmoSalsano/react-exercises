@@ -34,15 +34,15 @@ export function Login({onLogin = ()=>{console.error('Missing login function')}})
     })
   }
 
-  const _userInputRef = useRef();
+  const userInputRef = useRef();
 
   useEffect(() => {
-    _userInputRef.current.focus()
+    userInputRef.current.focus()
   }, [])
 
   return(
     <form>
-      <input ref={_userInputRef} name='username' onChange = { handleChange } value = { data.username } />
+      <input ref={userInputRef} name='username' onChange = { handleChange } value = { data.username } />
       <input name='password' type='password' onChange = { handleChange } value = { data.password } />
       <input name='remember' type='checkbox' onChange = { handleChange } checked = { data.remember } />
 
