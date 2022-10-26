@@ -8,6 +8,7 @@ export function App (){
       <div>
         <nav><Link to='/' >Home</Link> | <Link to='/counter' >Counter</Link> | <Link to='/users/' >Users</Link></nav>
         <Routes>
+          <Route path='*' element={<div><p>No content here</p> <Link to='/' >Home</Link></div>} />
           <Route path='/' element={<Welcome name='Patrick' />} />
           <Route path='/counter' element={<Counter />} />
           <Route path='/users' element={<ShowGithubUser />} >
