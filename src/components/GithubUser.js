@@ -23,7 +23,7 @@ export function GithubUser ({ userName }){
   }
 
   return(
-    userData?.name &&
+    (userData?.name &&
     <div style={userCard}>
       <ul style={ulStyle}>
         {cardFields.map((item) => {
@@ -37,6 +37,7 @@ export function GithubUser ({ userName }){
                 : <li key = {field + userData[field]}><strong>{heading}</strong>: {userData[field]}</li>)
         })}
       </ul>
-    </div>
+    </div>)
+    || <h3 style={{margin:'2rem'}}>Utente non trovato</h3>
   )
 }

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { GithubUser } from "./GithubUser"
+import{ Link, Outlet } from 'react-router-dom'
 
 export const GithubUserList = () => {
 
@@ -35,8 +35,11 @@ export const GithubUserList = () => {
 
   //Sto usando useEffect così, anche se c'è della render logic che credo non dovrebbe esserci.
   //Non saprei come altro usarlo
-  useEffect(() => {
+  /* useEffect(() => {
     setList(userList.map((user)=><GithubUser key={user.id + user.name} userName={user.name} />))
+  }, [userList]) */
+  useEffect(() => {
+    setList(<ul>{userList.map((user)=><li key={user.id + user.name}><Link to={'/users/' + user.name}>{user.name}</Link></li>)}</ul>)
   }, [userList])
   
 
@@ -47,7 +50,7 @@ export const GithubUserList = () => {
       <button onClick={handleAddUser}>Add User</button>
       <ul>
         {list}
-        {/* {userList.map((user)=><GithubUser key={user.id + user.name} userName={user.name} />)} */}
+        <Outlet />
       </ul>
     </div>
   )
