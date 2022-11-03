@@ -1,8 +1,10 @@
-import { useEffect, useState } from "react";
+import useSWR from "swr";
+
+const fetcher = (url)=>fetch(url).then((res)=>res.json())
 
 export function useGithubUser (user){
 
-  const [userData, setUserData] = useState(null)
+  /* const [userData, setUserData] = useState(null)
   const [error, setError] = useState(null)
   const [loading, setLoading] = useState(false)
 
@@ -18,11 +20,13 @@ export function useGithubUser (user){
       console.warn(`Fetch error\n${error}`)
     }
     setLoading(false)
-  }
+  } */
+
+  const { data: userData, error, mutate } = useSWR(`https://api.github.com/users/${user}`, fetcher)
   
-  useEffect(() => {
-    userFetch(user)
-  }, [user])
+  const userFetch = () => {
+    mutate()
+  }
 
   const CARDFIELDS = [
     {key: 'avatar_url', value: 'Avatar'}, 
@@ -37,7 +41,7 @@ export function useGithubUser (user){
     userData: userData,
     userFetch: userFetch,
     error: error,
-    loading: loading,
+    loading: !userData && !error,
     cardFields: CARDFIELDS
   })
 }
