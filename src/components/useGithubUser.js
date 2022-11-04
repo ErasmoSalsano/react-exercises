@@ -1,6 +1,6 @@
 import useSWR from "swr";
 
-const fetcher = (url)=>fetch(url).then((res)=>res.json())
+const fetcher = (url)=>fetch(url).then((res)=>res.json()).finally(()=>console.log('Fetched'))
 
 export function useGithubUser (user){
 
@@ -22,7 +22,7 @@ export function useGithubUser (user){
     setLoading(false)
   } */
 
-  const { data: userData, error, mutate } = useSWR(`https://api.github.com/users/${user}`, fetcher)
+  const { data: userData, error, mutate } = useSWR(user ? `https://api.github.com/users/${user}` : null, fetcher)
   
   const userFetch = () => {
     mutate()
